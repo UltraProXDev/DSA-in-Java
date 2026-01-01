@@ -1,0 +1,140 @@
+BIG-O TIME & SPACE COMPLEXITY – GOLDEN RULES
+
+TIME COMPLEXITY (QUICK)
+
+Single loop → O(n)
+Nested loops → O(n^2)
+Loop halving (n/2) → O(log n)
+Loop inside recursion → multiply work
+Two recursive calls → O(2^n)
+Binary Search → O(log n)
+
+Sorting:
+Bubble / Selection / Insertion → O(n^2)
+Merge / Heap / Quick (avg) → O(n log n)
+
+Constant iterations → O(1)
+Consecutive loops → O(n)
+
+--------------------------------------------------
+
+SPACE COMPLEXITY (QUICK)
+
+Only variables → O(1)
+Array / ArrayList size n → O(n)
+Recursion → O(depth)
+Multiple recursive calls → max depth only
+In-place algorithm → O(1)
+String concat in loop → extra space
+StringBuilder → O(n)
+Returning array/object → O(n)
+
+--------------------------------------------------
+
+DETAILED RULES
+
+TIME COMPLEXITY
+
+1. Constant time
+   No loops or recursion
+   O(1)
+
+2. Single loop
+   Runs n times
+   O(n)
+
+3. Nested loops (same n)
+   O(n^2)
+
+4. Nested loops (n, m)
+   O(n * m)
+
+5. i = i * 2 or i / 2
+   O(log n)
+
+6. i = i + k (constant)
+   O(n)
+
+7. Consecutive loops
+   O(n + n) = O(n)
+
+8. If / else
+   Take maximum path
+
+9. Recursion (n - 1)
+   O(n)
+
+10. Recursion (n / 2)
+    O(log n)
+
+11. Two recursive calls (n - 1)
+    O(2^n)
+
+12. Two recursive calls (n / 2)
+    O(n)
+
+13. Loop inside recursion
+    Work × depth
+
+14. Binary Search
+    O(log n)
+
+15. Sorting
+    Bubble / Selection / Insertion → O(n^2)
+    Merge / Heap / Quick(avg) → O(n log n)
+
+--------------------------------------------------
+
+SPACE COMPLEXITY
+
+16. Only variables
+    O(1)
+
+17. Array of size n
+    O(n)
+
+18. ArrayList / HashMap
+    O(n)
+
+19. Recursion stack
+    n → O(n)
+    n/2 → O(log n)
+
+20. Multiple recursion
+    Space = deepest call
+
+21. In-place
+    O(1)
+
+22. String immutability
+    Time → O(n^2)
+    Space → O(n)
+
+23. StringBuilder
+    Time → O(n)
+    Space → O(n)
+
+24. Returning array/object
+    O(n)
+
+--------------------------------------------------
+
+BIG-O THEORY
+
+25. Big-O = worst case
+
+26. Ignore constants
+    O(2n) → O(n)
+
+27. Ignore lower terms
+    O(n^2 + n) → O(n^2)
+
+28. Growth order
+    O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n)
+
+29. Time vs Space tradeoff
+
+30. Always ask
+    How many times loop runs?
+    Does memory grow?
+    Is recursion used?
