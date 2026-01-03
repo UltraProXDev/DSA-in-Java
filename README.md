@@ -38,6 +38,89 @@ This repository focuses on building **strong problem-solving skills**, writing *
 
 ---
 
+## 📘 DSA (Data Structures & Algorithms)
+DSA
+│
+├── DATA STRUCTURES
+│   │
+│   ├── Primitive
+│   │   ├── int
+│   │   ├── float
+│   │   ├── char
+│   │   └── boolean
+│   │
+│   └── Non-Primitive
+│       │
+│       ├── Linear Data Structures
+│       │   ├── Array
+│       │   ├── Linked List
+│       │   │   ├── Singly
+│       │   │   ├── Doubly
+│       │   │   └── Circular
+│       │   ├── Stack
+│       │   ├── Queue
+│       │   │   ├── Simple Queue
+│       │   │   ├── Circular Queue
+│       │   │   ├── Priority Queue
+│       │   │   └── Deque
+│       │
+│       └── Non-Linear Data Structures
+│           ├── Tree
+│           │   ├── Binary Tree
+│           │   ├── Binary Search Tree
+│           │   ├── AVL Tree
+│           │   ├── Heap
+│           │   └── Trie
+│           │
+│           ├── Graph
+│           │   ├── Directed
+│           │   └── Undirected
+│           │
+│           └── Hashing
+│               ├── Hash Table
+│               ├── Hash Map
+│               └── Hash Set
+│
+└── ALGORITHMS
+    │
+    ├── Searching Algorithms
+    │   ├── Linear Search
+    │   └── Binary Search
+    │
+    ├── Sorting Algorithms
+    │   ├── Bubble Sort
+    │   ├── Selection Sort
+    │   ├── Insertion Sort
+    │   ├── Merge Sort
+    │   ├── Quick Sort
+    │   └── Heap Sort
+    │
+    ├── Algorithm Design Techniques
+    │   ├── Brute Force
+    │   ├── Divide and Conquer
+    │   ├── Greedy Algorithm
+    │   ├── Dynamic Programming
+    │   ├── Backtracking
+    │   └── Recursion
+    │
+    ├── Graph Algorithms
+    │   ├── BFS
+    │   ├── DFS
+    │   ├── Dijkstra’s Algorithm
+    │   ├── Kruskal’s Algorithm
+    │   └── Prim’s Algorithm
+    │
+    └── Other Important Algorithms
+        ├── Sliding Window
+        ├── Two Pointer Technique
+        ├── Bit Manipulation
+        └── String Algorithms
+            ├── KMP
+            └── Rabin-Karp
+
+
+---
+
 ## 🧠 Problem Sources & Practice
 The problems solved in this repository are inspired by well-known platforms and standard DSA sheets:
 
