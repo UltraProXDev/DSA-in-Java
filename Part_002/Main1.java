@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Main1 {
 
     /*
     Q1. Write a method to take name and age from the user
@@ -236,7 +236,7 @@ public class Main {
 
     // -------------------- FINAL MAIN METHOD --------------------
     public static void main(String[] args) {
-        Main obj = new Main();
+        Main1 obj = new Main1();
 
         obj.printNameAge();
 
