@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 public class Main2 {
     int[] prefixSum(int[] arr){
         for(int i = 1; i < arr.length; i++){
@@ -22,9 +22,20 @@ public class Main2 {
         }
         return maxSum;
     }
+
+    void hashMap(){
+        HashMap<Integer, String> hm = new HashMap<>();
+        hm.put(1, "ABC");
+        hm.put(2, "MNO");
+        hm.put(3, "XYZ");
+        System.out.println(hm);
+        System.out.println(hm.containsKey(4));
+        hm.put(2, "PQR");
+        System.out.println(hm.get(2));
+        
+    }
     public static void main(String[] args){
         Main2 m = new Main2();
-        int[] arr = {9,2,12,2};
-        System.out.println(m.maxSum(arr, 2));
+        m.hashMap();
     }
 }

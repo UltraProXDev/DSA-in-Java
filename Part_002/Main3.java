@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Main3 {
     String reverse(String txt){
         String result = "";
@@ -6,15 +8,15 @@ public class Main3 {
         }
         return result;
     }
-/*
+
     int size(String txt){
         int count = 0;
-        for(char i : txt){
+        for(char i : txt.toCharArray()){
             count++;
         }
         return count;
     }
-*/
+
     String remove(String txt){
         return txt.replace(" ", "");
     }
@@ -65,8 +67,44 @@ public class Main3 {
         }
         return true;
     }
+
+
+
+    int count(String str, char c){
+        int count = 0;
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(i) == c){
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    void printChar(String txt){
+        ArrayList<Character> lst = new ArrayList<>();
+        txt = txt.replace(" ", "").toLowerCase();
+        for(int i = 0; i < txt.length(); i++){
+            if(lst.contains(txt.charAt(i))){
+                System.out.println(txt.charAt(i));
+            }else{
+                lst.add(txt.charAt(i));
+            }
+        }
+    }
+
+    boolean checkUnique(String txt){
+        txt = txt.replace(" ", "").toLowerCase();
+        for(int i = 0; i < txt.length(); i++){
+            for(int j = i + 1; j < txt.length(); j++){
+                if(txt.charAt(i) == txt.charAt(j)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     public static void main(String[] args){
         Main3 obj = new Main3();
-        System.out.println(obj.isPalindromeStr("A man a plan a canal Panama"));
+        obj.printChar("bcddbcbefghijaaji");
     }
 }
