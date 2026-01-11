@@ -103,8 +103,92 @@ public class Main3 {
         }
         return true;
     }
+
+    int indexOfTarget(int[] arr, int target){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    boolean checkName(String[] arr, String name){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == name){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    int countNum(int[] arr, int target){
+        int count = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    int largestNum(int[] arr, int num){
+        int largest = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] < num && arr[i] > largest){
+                largest = arr[i];
+            }
+        }
+        return largest;
+    }
+
+    int lastIndex(int[] arr, int target){
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                return i - 1;
+            }
+        }
+        return -1;
+    }
+
+    boolean checkDuplicate(int[] arr){
+        ArrayList<Integer> lst = new ArrayList<>();
+        for(int i = 0; i < arr.length; i++){
+            if(!(lst.contains(arr[i]))){
+                lst.add(arr[i]);
+            }else{
+                return true;
+            }
+        }
+        return false;
+    }
+
+    int minElement(int[] arr){
+        int min = arr[0];
+        for(int i = 1; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
+    int secondLargest(int[] arr){
+        int firstLargest = arr[0];
+        int secondLargest = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > firstLargest){
+                secondLargest = firstLargest;
+                firstLargest = arr[i];
+            }else if(arr[i] < firstLargest && arr[i] > secondLargest){
+                secondLargest = arr[i];
+            }
+        }
+        return secondLargest;
+    }
     public static void main(String[] args){
         Main3 obj = new Main3();
-        obj.printChar("bcddbcbefghijaaji");
+        int[] arr = {1,2,3,4,5,6,7,8,6,5,3,4,6,3,5,3,6,2};
+        System.out.println(obj.secondLargest(arr));
     }
 }
