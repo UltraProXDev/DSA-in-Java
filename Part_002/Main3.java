@@ -104,6 +104,7 @@ public class Main3 {
         return true;
     }
 
+    // linear search.
     int indexOfTarget(int[] arr, int target){
         for(int i = 0; i < arr.length; i++){
             if(arr[i] == target){
@@ -186,9 +187,145 @@ public class Main3 {
         }
         return secondLargest;
     }
+
+    // binary search.
+    int targetIndex(int[] arr, int target){
+        int first = 0;
+        int last = arr.length - 1;
+        while(first <= last){
+            int mid = (first + last) / 2;
+            if(arr[mid] == target){
+                return mid;
+            }else if(arr[mid] > target){
+                last = mid - 1;
+            }else{
+                first = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    boolean checkTarget(int[] arr, int target){
+        int left = 0;
+        int right = arr.length - 1;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(arr[mid] == target){
+                return true;
+            }else if(arr[mid] > target){
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+
+    int firstOccur(int[] arr, int target){
+        int first = 0;
+        int last = arr.length - 1;
+        while(first <= last){
+            int mid = (first + last) / 2;
+            if(arr[mid] == target){
+                for(int i = 1; i < arr.length; i++){
+                    if(arr[mid - i] != target){
+                        return mid - i + 1;
+                    }
+                }
+            }else if(arr[mid] > target){
+                last = mid - 1;
+            }else{
+                first = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    int lastOccur(int[] arr, int target){
+        int first = 0;
+        int last = arr.length - 1;
+        while(first <= last){
+            int mid = (first + last) / 2;
+            if(arr[mid] == target){
+                for(int i = 1; i < arr.length; i++){
+                    if(arr[mid + i] != target){
+                        return mid + i - 1;
+                    }
+                }
+            }else if(arr[mid] > target){
+                last = mid - 1;
+            }else{
+                first = mid + 1;
+            }
+        }
+        return -1;
+    }
+
+    int countNums(int[] arr, int target){
+        int first = 0;
+        int last = arr.length - 1;
+        int count = 0;
+        while(first <= last){
+            int mid = (first + last) / 2;
+            if(arr[mid] == target){
+                for(int i = first; i < last; i++){
+                    if(arr[i] == target){
+                        count++;
+                    }
+                }
+                return count;
+            }else if(arr[mid] > target){
+                last = mid - 1;
+            }else{
+                first = mid + 1;
+            }
+        }
+        return 0;
+    }
+
+    int SEGOET(int[] arr, int target){
+        int first = 0;
+        int last = arr.length - 1;
+        int count = 0;
+        while(first < last){
+            int mid = (first + last) / 2;
+            if(arr[mid] == target){
+                return arr[mid];
+            }else if(arr[mid] > target){
+                last = mid - 1;
+            }else{
+                first = mid + 1;
+            }
+        }
+        return arr[last];
+    }
+
+    int findPosition(int[] arr, int target){
+        int first = 0;
+        int last = arr.length - 1;
+        int count = 0;
+        while(first <= last){
+            int mid = (first + last) / 2;
+            if(arr[mid] > target){
+                if(arr[mid - 1] < target){
+                    return mid;
+                }
+                last = mid - 1;
+            }else{
+                first = mid + 1;
+            }
+        }
+        return arr.length;
+    }
+
+    int findKSmallest(int[] arr, int k){
+        return arr[k-1];
+    }
+
+    
     public static void main(String[] args){
         Main3 obj = new Main3();
-        int[] arr = {1,2,3,4,5,6,7,8,6,5,3,4,6,3,5,3,6,2};
-        System.out.println(obj.secondLargest(arr));
+        int[] arr = {2,3,3,4,4,6,7,8,9};
+        System.out.println(obj.findKSmallest(arr, 5));
     }
 }
