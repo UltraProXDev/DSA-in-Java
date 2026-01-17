@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.math.*;
 
 public class Main4 {
@@ -97,9 +97,173 @@ public class Main4 {
         System.out.println("Move disk "+ n +" from "+source+" to "+destination);
         solve(n - 1, auxiliary, source, destination);
     }
+
+    // bubble sort
+    static void countSwaps(int[] arr){
+        int count = 0;
+        int n = arr.length;
+        for(int i = 0; i < n - 1; i++){
+            boolean swapped = false;
+            for(int j = 0; j < n - i - 1; j++){
+                if(arr[j] > arr[j + 1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    count++;
+                    swapped = true;
+                }
+            }
+            if(!swapped) break;
+        }
+        System.out.println("Sorted array: "+Arrays.toString(arr));
+        System.out.println("Swaps: "+count);
+    }
+
+    
+    //selection sort
+    static void findMinElement(int[] arr){
+        int n = arr.length;
+        for(int i = 0; i < n - 1; i++){
+            int minIndex = i;
+            for(int j = i + 1; j < n; j++){
+                if(arr[minIndex] > arr[j]){
+                    minIndex = j;
+                }
+            }
+            System.out.println("Minimum Element: "+arr[minIndex]+", Index: "+minIndex);
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    static int[] descendingSort(int[] arr){
+        int n = arr.length;
+        for(int i = 0; i < n - 1; i++){
+            int maxIndex = i;
+            for(int j = i + 1; j < n; j++){
+                if(arr[maxIndex] < arr[j]){
+                    maxIndex = j;
+                }
+            }
+            int temp = arr[maxIndex];
+            arr[maxIndex] = arr[i];
+            arr[i] = temp;
+        }
+        return arr;
+    }
+
+    // insertion sort
+    static void insertionStep(int[] arr){
+        int n = arr.length;
+        for(int i = 1; i < n; i++){
+            int key = arr[i];
+            int j = i - 1;
+            while(arr[j] > key && j >= 0){
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+            System.out.println(Arrays.toString(arr));
+        }
+    } 
+
+    static void sortLinkedList(LinkedList<Integer> list) {
+        int n = list.size();
+        for (int i = 1; i < n; i++) {
+            int key = list.get(i);
+            int j = i - 1;
+            while (j >= 0 && list.get(j) > key) {
+                list.set(j + 1, list.get(j));
+                j--;
+            }
+        list.set(j + 1, key);
+        }
+    }
+
+
+
+    static boolean isValid(String s) {
+        Stack<Character> stk = new Stack<>();
+        for(char c : s.toCharArray()){
+            if(c == '(' || c == '[' || c == '{'){
+                stk.push(c);
+            }else{
+                if(stk.isEmpty()) return false;
+                char top = stk.pop();
+                if(c == ')' && top != '(' || 
+                c == ']' && top != '[' || 
+                c == '}' && top != '{'){
+                    return false;
+                }
+            }
+        }
+        return stk.isEmpty();
+    }
+
+    static boolean isValidWithChars(String s) {
+        Stack<Character> stk = new Stack<>();
+        for(char c : s.toCharArray()){
+            if(c == '(' || c == '[' || c == '{'){
+                stk.push(c);
+            }else{
+                if(!stk.isEmpty()){
+                    char top = stk.pop();
+                    if(c == ')' && top != '(' || 
+                    c == ']' && top != '[' || 
+                    c == '}' && top != '{'){
+                        return false;
+                    }
+                }
+            }
+        }
+        return stk.isEmpty();
+    }
+
+    static int longestValidParentheses(String s) {
+        Stack<Character> stk = new Stack<>();
+        int count = 0; 
+        for(char c : s.toCharArray()){
+            if(c == '(' || c == '[' || c == '{'){
+                stk.push(c);
+            }else if(c == ')' || c == ']' || c == '}'){
+                if(!stk.isEmpty()){
+                    char top = stk.pop();
+                    if(c == ')' && top == '(' || 
+                    c == ']' && top == '[' || 
+                    c == '}' && top == '{'){
+                        count += 2;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    static int maxDepth(String s) {
+        Stack<Character> stk = new Stack<>();
+        int count = 0; 
+        int maxDepth = 0;
+        for(char c : s.toCharArray()){
+            if(c == '(' || c == '[' || c == '{'){
+                count++;
+                if(maxDepth < count) maxDepth = count;
+                stk.push(c);
+            }else if(c == ')' || c == ']' || c == '}'){
+                if(!stk.isEmpty()){
+                    char top = stk.pop();
+                    if(c == ')' && top == '(' || 
+                    c == ']' && top == '[' || 
+                    c == '}' && top == '{'){
+                        count--;
+                    }
+                }
+            }
+        }
+        return maxDepth;
+    }
+
     public static void main(String[] args){
-        Main4 obj = new Main4();
-        int[] arr = {1,2,3,4,5};
-        solve(4, 'A', 'B', 'C');
+        System.out.println(maxDepth("()(()(()(()(()()())())())())()"));
     }
 }
