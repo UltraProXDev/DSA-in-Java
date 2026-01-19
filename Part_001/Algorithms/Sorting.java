@@ -43,7 +43,7 @@ public class Sorting{
         return arr;
     }
 
-    public static void quickSort(int[] arr, int low, int high){
+    public static void QuickSort(int[] arr, int low, int high){
         if(low < high){
             int pivotIndex = partition(arr, low, high);
             quickSort(arr, low, pivotIndex - 1);
