@@ -91,6 +91,83 @@ public class Main5 {
         System.out.print(lst.get(lst.size() - 1));
     }
 
+    static int findLength1(LinkedList<Integer> lst){
+        int count = 0;
+        for(int i : lst){
+            count++;
+        }
+        return count;
+    }
+
+    static int findLength2(LinkedList<Integer> lst, int count){
+        if(!lst.isEmpty()){
+            lst.remove();
+            count++;
+        }else{
+            return count;
+        }
+        return findLength2(lst, count);         
+    }
+
+    static boolean isExist(LinkedList<Integer> lst, int target){
+        for(int i : lst){
+            if(i == target){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static int elementIndex(LinkedList<Integer> lst, int target){
+        for(int i = 0; i < lst.size(); i++){
+            if(lst.get(i) == target){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    static int findMiddle(LinkedList<Integer> lst){
+        int middleIndex = lst.size() / 2;
+        return lst.get(middleIndex);
+    }
+
+    static LinkedList<Integer> reverseLinkedList(LinkedList<Integer> lst){
+        for(int i = 1; i < lst.size(); i++){
+            int temp = lst.get(i);
+            lst.remove(i);
+            lst.addFirst(temp);
+        }
+        return lst;
+    }
+
+    static int[] mergeTwoSortedLinkedList(LinkedList<Integer> lst1, LinkedList<Integer> lst2) {
+        int[] arr = new int[lst1.size() + lst2.size()];
+        int a = 0, b = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(a == lst1.size() && b == lst2.size()){
+                break;
+            }else if(a == lst1.size() && b < lst2.size()){
+                arr[i] = lst2.get(b);
+                b++;
+            }else if(a < lst1.size() && b == lst2.size()){
+                arr[i] = lst1.get(a);
+                a++;
+            }else if(lst1.get(a) <= lst2.get(b)){
+                arr[i] = lst1.get(a);
+                a++;
+            }else{
+                arr[i] = lst2.get(b);
+                b++;
+            }
+        }
+        return arr;
+    }
+
+   
+
+
+    
     public static void main(String[] args) {
 /*      Queue<Integer> q1 = new LinkedList<>();
         q1.add(1);
@@ -125,6 +202,26 @@ public class Main5 {
        lst.add(3);
        lst.add(4);
        lst.add(5);
-       removeNth(lst, 2);
+       LinkedList<Integer> lst1 = new LinkedList<>();
+       lst1.add(1);
+       lst1.add(3);
+       lst1.add(5);
+       lst1.add(8);
+       lst1.add(9);
+       LinkedList<Integer> lst2 = new LinkedList<>();
+       lst2.add(2);
+       lst2.add(4);
+       lst2.add(6);
+       lst2.add(8);
+       lst2.add(10);
+    //   removeNth(lst, 2);
+    //   System.out.println(findLength1(lst));
+    //   System.out.println(findLength2(lst, 0));
+    //   System.out.println(isExist(lst, 3));
+    //   System.out.println(elementIndex(lst, 4));
+    //   System.out.println(findMiddle(lst));
+    //   System.out.println(reverseLinkedList(lst));
+    //   System.out.println(Arrays.toString(mergeTwoSortedLinkedList(lst1, lst2)));
+    System.out.println(lst);
     }
 }
