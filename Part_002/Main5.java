@@ -164,9 +164,24 @@ public class Main5 {
         return arr;
     }
 
-   
+    static boolean isPalindrome(LinkedList<Integer> lst){
+        LinkedList<Integer> reverse = new LinkedList<>();
+        for(int i = 0; i < lst.size(); i++){
+            reverse.addFirst(lst.get(i));
+        }
+        for(int i = 0; i < lst.size(); i++){
+            if(lst.get(i) != reverse.get(i)) return false;
+        }
+        return true;
+   }
 
+    static String findNthNodeFromEnd(LinkedList<Integer> lst, int n){
+        int b = lst.size() - n;
+        int a = b - 1;
+        return lst.get(a)+" -> "+lst.get(b);
+    }
 
+    
     
     public static void main(String[] args) {
 /*      Queue<Integer> q1 = new LinkedList<>();
@@ -196,32 +211,33 @@ public class Main5 {
         System.out.println(minNum(arr, k));
 
         */
-       LinkedList<Integer> lst = new LinkedList<>();
-       lst.add(1);
-       lst.add(2);
-       lst.add(3);
-       lst.add(4);
-       lst.add(5);
-       LinkedList<Integer> lst1 = new LinkedList<>();
-       lst1.add(1);
-       lst1.add(3);
-       lst1.add(5);
-       lst1.add(8);
-       lst1.add(9);
-       LinkedList<Integer> lst2 = new LinkedList<>();
-       lst2.add(2);
-       lst2.add(4);
-       lst2.add(6);
-       lst2.add(8);
-       lst2.add(10);
-    //   removeNth(lst, 2);
-    //   System.out.println(findLength1(lst));
-    //   System.out.println(findLength2(lst, 0));
-    //   System.out.println(isExist(lst, 3));
-    //   System.out.println(elementIndex(lst, 4));
-    //   System.out.println(findMiddle(lst));
-    //   System.out.println(reverseLinkedList(lst));
-    //   System.out.println(Arrays.toString(mergeTwoSortedLinkedList(lst1, lst2)));
-    System.out.println(lst);
+        LinkedList<Integer> lst = new LinkedList<>();
+        lst.add(1);
+        lst.add(2);
+        lst.add(3);
+        lst.add(4);
+        lst.add(5);
+        LinkedList<Integer> lst1 = new LinkedList<>();
+        lst1.add(1);
+        lst1.add(3);
+        lst1.add(5);
+        lst1.add(8);
+        lst1.add(9);
+        LinkedList<Integer> lst2 = new LinkedList<>();
+        lst2.add(2);
+        lst2.add(4);
+        lst2.add(6);
+        lst2.add(8);
+        lst2.add(10);
+    //    removeNth(lst, 2);
+    //    System.out.println(findLength1(lst));
+    //    System.out.println(findLength2(lst, 0));
+    //    System.out.println(isExist(lst, 3));
+    //    System.out.println(elementIndex(lst, 4));
+    //    System.out.println(findMiddle(lst));
+    //    System.out.println(reverseLinkedList(lst));
+    //    System.out.println(Arrays.toString(mergeTwoSortedLinkedList(lst1, lst2)));
+    //    System.out.println(isPalindrome(lst));
+        System.out.println(findNthNodeFromEnd(lst, 3));
     }
 }
