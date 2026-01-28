@@ -112,7 +112,7 @@ public class Main{
         //Compile-time
         MathUtil m = new MathUtil();
         System.out.println(m.add(10, 20));
-        System.out.println(10.25, 20.75);
+        System.out.println(m.add(10.25, 20.75));
 
         //Runtime
         Animal2 d2 = new Dog2();
